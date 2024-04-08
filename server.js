@@ -2,9 +2,13 @@ const express = require('express');
 const app = express();
 
 // -----------------
+// Controllers
+require('./controllers/posts')(app);
+
+// -----------------
 // Handlebars Setup
 const exhbs = require('express-handlebars');
-const Handlebars = require('handlebars');
+// const Handlebars = require('handlebars');
 
 app.engine('handlebars', exhbs.engine({
     defaultLayout: 'main'
