@@ -1,4 +1,7 @@
+// Required Library
 const express = require('express');
+// -----------------
+// App Setup
 const app = express();
 
 // -----------------
@@ -6,9 +9,17 @@ const app = express();
 require('./controllers/posts')(app);
 
 // -----------------
+// Set db
+require('./data/reddit-db');
+
+// -----------------
+// Middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }));
+
+// -----------------
 // Handlebars Setup
 const exhbs = require('express-handlebars');
-// const Handlebars = require('handlebars');
 
 app.engine('handlebars', exhbs.engine({
     defaultLayout: 'main'
@@ -17,11 +28,18 @@ app.engine('handlebars', exhbs.engine({
 // -----------------
 // Setup Handlebars to render
 app.set('view engine', 'handlebars');
+app.set('views', './views');
 
 // -----------------
-// Routes
+// ROUTES
+// -----------------
+
 app.get('/', (req, res) => {
     res.render('home')
+})
+
+app.get('/posts/new', (req, res) => {
+    res.render('posts-new.handlebars')
 })
 
 // -----------------

@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row d-flex justify-content-center mt-2">
   <div class="col-sm-4 col-sm-offset-4">
-    <form action="/posts/new" method="post">
+    <form action="/posts/new" method="POST">
       <legend>New Post</legend>
-      <div class="form-group">
+      <div class="form-group mt-3">
         <label for="post-title">Title</label>
         <input
           type="text"
@@ -13,7 +13,7 @@
         />
       </div>
       {{!-- URL --}}
-      <div class="form-group">
+      <div class="form-group mt-3">
         <label for="post-url">Url</label>
         <input
           type="url"
@@ -24,7 +24,7 @@
         />
       </div>
       {{!-- Summary --}}
-      <div class="form-group">
+      <div class="form-group mt-3">
         <label for="post-summary">Summary</label>
         <textarea
           name="summary"
@@ -34,7 +34,7 @@
         ></textarea>
       </div>
       {{!-- Create Post --}}
-      <div class="text-right">
+      <div class="text-right mt-3">
         <button type="submit" class="btn btn-primary">Create Post</button>
       </div>
     </form>
