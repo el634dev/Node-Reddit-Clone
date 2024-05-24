@@ -1,5 +1,6 @@
 // Required Library
 const express = require('express');
+const Post = require('./models/post');
 // -----------------
 // App Setup
 const app = express();
@@ -34,12 +35,12 @@ app.set('views', './views');
 // ROUTES
 // -----------------
 
-app.get('/', async(req, res) => {
+app.get('/', async (req, res) => {
     try {
-        const posts = await posts.find({}).lean();
-        return res.render('posts-index', { posts });
-    } catch(err) {
-        console.log(err.message);
+      const posts = await Post.find({}).lean();
+      return res.render('posts-index', { posts });
+    } catch (err) {
+      console.log(err.message);
     }
 });
 
