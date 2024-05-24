@@ -34,9 +34,14 @@ app.set('views', './views');
 // ROUTES
 // -----------------
 
-app.get('/', (req, res) => {
-    res.render('home')
-})
+app.get('/', async(req, res) => {
+    try {
+        const posts = await posts.find({}).lean();
+        return res.render('posts-index', { posts });
+    } catch(err) {
+        console.log(err.message);
+    }
+});
 
 app.get('/posts/new', (req, res) => {
     res.render('posts-new.handlebars')
