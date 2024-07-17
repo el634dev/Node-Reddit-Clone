@@ -2,3 +2,7 @@
 > Created a Reddit clone using Node.js, Handlebars and Express.js
 
 # Getting Started
+
+
+# Project Status
+> In Progress
